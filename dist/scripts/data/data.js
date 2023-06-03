@@ -1,0 +1,1 @@
+import API_ENDPOINT from"../global/api-endpoint";const DATA={getAllList:async()=>(await fetch(API_ENDPOINT.ALLLIST)).json(),getDetail:async t=>(await fetch(API_ENDPOINT.DETAIL(t))).json()};export default DATA;

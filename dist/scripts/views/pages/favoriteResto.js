@@ -1,0 +1,1 @@
+import favoriteRestaurant from"../../data/favoriteResto-idb";const favoriteResto={async render(){document.querySelector(".daftar-restoran");const t=await favoriteRestaurant.getAllFavoriteRestaurant();console.log(t)}};export default favoriteResto;

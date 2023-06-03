@@ -1,0 +1,17 @@
+{
+  "id": "pendopoHub",
+  "start_url": "./index.html",
+  "name": "Proyek Restaurant",
+  "short_name": "PendopoHUB",
+  "description": "An App for restaurant details",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "./images/logo/logo.png",
+      "sizes": "200x200",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

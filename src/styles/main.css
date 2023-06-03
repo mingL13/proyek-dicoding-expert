@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #d4a373;
+  --secondary-color: #faedcd;
+  --third-color: #fefae0;
+  --fourth-color: #e9edc9;
+  --fifth-color: #ccd5ae;
+  --hard-support-color: #1a1a1a;
+  --soft-support-color: #f1f1f1;
+  --first-heading: 24px;
+  --second-heading: 22px;
+  --third-heading: 20px;
+  --fourth-heading: 18px;
+  --fifth-heading: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates";
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  background-color: var(--fifth-color);
+  display: flex;
+  padding: 8px;
+  border-radius: 8px;
+  align-items: center;
+  height: 44px;
+  color: var(--hard-support-color);
+  font-weight: 700;
+}
+
+.skip-to-content:focus {
+  top: 5%;
+}
+
+nav {
+  display: flex;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+
+#logo img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+}
+
+#exit-menu {
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+.navbar-menu a {
+  font-size: var(--third-heading);
+  font-weight: 600;
+  color: var(--hard-support-color);
+  margin-left: 16px;
+  margin-right: 8px;
+  min-height: 44px;
+}
+
+#nav-bar-icon {
+  background-color: unset;
+  border: none;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar-icon {
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+#exit-hamburger-menu {
+  background-color: unset;
+  border: none;
+  min-height: 44px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.jumbotron {
+  display: flex;
+  justify-content: center;
+}
+
+#jumbotron-image {
+  width: 100%;
+}
+
+.item-restoran {
+  margin: 8px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--fourth-color);
+  border-radius: 8px;
+}
+
+.heading-restoran {
+  background-color: var(--fifth-color);
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.gambar-restoran {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gambar-restoran img {
+  width: 80%;
+  border-radius: 8px;
+}
+
+.favorite-button {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  width: 80%;
+  min-height: 38px;
+  font-weight: 600;
+  font-size: 20px;
+  border: none;
+  background-color: #9336b4;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 4px 4px 25px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 4px 25px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 25px -3px rgba(0, 0, 0, 0.75);
+}
+
+.unfavorite-button {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  width: 80%;
+  min-height: 38px;
+  font-weight: 600;
+  font-size: 20px;
+  border: none;
+  background-color: #e76161;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 4px 4px 25px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 4px 25px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 25px -3px rgba(0, 0, 0, 0.75);
+}
+
+.nama-restoran {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.kota-restoran {
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.rating-restoran {
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.deskripsi-restoran {
+  padding: 8px;
+  margin-top: 8px;
+  font-weight: 400;
+  text-align: justify;
+  background-color: var(--fifth-color);
+  border-radius: 4px;
+}
+
+.kategori-restoran {
+  padding: 8px;
+  margin-top: 8px;
+  font-weight: 400;
+  text-align: justify;
+  background-color: var(--fifth-color);
+  border-radius: 4px;
+}
+
+.menu-restoran {
+  padding: 8px;
+  margin-top: 8px;
+  font-weight: 400;
+  text-align: justify;
+  background-color: var(--fifth-color);
+  border-radius: 4px;
+}
+
+.menu-makanan {
+  font-weight: 600;
+}
+
+.list-menu-makanan {
+  margin-top: 8px;
+  margin-left: 20px;
+  font-weight: 400;
+}
+
+.menu-minuman {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.list-menu-minuman {
+  margin-top: 8px;
+  margin-left: 20px;
+  font-weight: 400;
+}
+
+.review-pelanggan {
+  padding: 8px;
+  margin-top: 8px;
+  font-weight: 400;
+  text-align: justify;
+  background-color: var(--fifth-color);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.review-detail-block {
+  margin-left: 20px;
+  font-weight: 400;
+  background-color: var(--third-color);
+  border-radius: 4px;
+  padding: 12px 8px;
+  margin-top: 8px;
+}
+
+.nama-review {
+  margin-bottom: 8px;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+footer {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.copyright {
+  padding: 8px;
+}
+
+.right-side {
+  margin-right: 40px;
+}
+
+.right-side a {
+  color: var(--hard-support-color);
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 460px) {
+  .navbar-menu.active {
+    height: 20%;
+    min-height: 150px;
+    max-height: 180px;
+    width: 50%;
+    min-width: 150px;
+    max-width: 200px;
+  }
+  .navbar-menu img {
+    align-items: flex-end;
+  }
+  footer {
+    display: flex;
+  }
+  .right-side {
+    padding-bottom: 8px;
+    text-align: end;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: absolute;
+    display: grid;
+    top: 0;
+    right: 0;
+    margin-top: 32px;
+    margin-right: 12px;
+    padding: 8px;
+    align-items: center;
+    transition: 0.1s;
+    border-radius: 8px;
+    visibility: hidden;
+  }
+
+  #exit-menu {
+    display: block;
+  }
+
+  #navbar-icon {
+    display: block;
+  }
+
+  .navbar-menu.active {
+    width: 35%;
+    right: 0;
+    background-color: var(--fifth-color);
+    visibility: visible;
+  }
+  .navbar-menu img {
+    align-items: flex-end;
+  }
+  .right-side a {
+    min-width: inherit;
+  }
+}
+
+@media (min-width: 1201px) {
+  #jumbotron-image {
+    min-width: 1000px;
+    width: unset;
+  }
+}
