@@ -1,7 +1,8 @@
 const path = require("path");
+// eslint-disable-next-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// eslint-disable-next-line import/no-extraneous-dependencies
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -40,34 +41,11 @@ module.exports = {
       filename: "index.html",
       template: path.resolve(__dirname, "src/templates/index.html"),
     }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: "./sw.bundle.js",
-    }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
-        },
-        {
-          from: "src/scripts/app.webmanifest",
-          to: "app.webmanifest",
-        },
-        {
-          from: "src/scripts/data/",
-          to: "scripts/data/",
-        },
-        {
-          from: "src/scripts/routes/",
-          to: "scripts/routes",
-        },
-        {
-          from: "src/scripts/views/pages/",
-          to: "scripts/views/pages",
-        },
-        {
-          from: "src/scripts/utils/",
-          to: "scripts/utils",
         },
       ],
     }),

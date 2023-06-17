@@ -13,9 +13,10 @@ const detailResto = {
       return resultRandom;
     };
 
-    const templateItem = (restaurantData) => {
+    // eslint-disable-next-line max-len
+    const checkFavoriteResto = (favoriteResto, checkId) => favoriteResto.find((resto) => resto.id === checkId);
+    const templateItem = (restaurantData, favoriteResto) => {
       const itemRestoran = document.createElement("div");
-
       itemRestoran.classList.add("item-restoran");
       itemRestoran.setAttribute("tabindex", 0);
 
@@ -30,17 +31,19 @@ const detailResto = {
 
       const imageRestoran = document.createElement("img");
       imageRestoran.setAttribute("src", API_ENDPOINT.IMAGE(restaurantData.pictureId, "large"));
-      imageRestoran.setAttribute("alt", "Foto Restoran");
+      imageRestoran.setAttribute("alt", `Foto ${restaurantData.name} Restaurant`);
 
-      const addFavoriteButton = document.createElement("button");
-      addFavoriteButton.classList.add("favorite-button");
-      addFavoriteButton.innerText = "Add Favorite";
-
-      const deleteFavoriteButton = document.createElement("button");
-      deleteFavoriteButton.classList.add("unfavorite-button");
-      deleteFavoriteButton.innerText = "Un-Favorite";
-
-      gambarRestoran.append(imageRestoran, addFavoriteButton, deleteFavoriteButton);
+      if (checkFavoriteResto(favoriteResto, restaurantData.id)) {
+        const deleteFavoriteButton = document.createElement("button");
+        deleteFavoriteButton.classList.add("unfavorite-button");
+        deleteFavoriteButton.innerText = "Un-Favorite";
+        gambarRestoran.append(imageRestoran, deleteFavoriteButton);
+      } else {
+        const addFavoriteButton = document.createElement("button");
+        addFavoriteButton.classList.add("favorite-button");
+        addFavoriteButton.innerText = "Add Favorite";
+        gambarRestoran.append(imageRestoran, addFavoriteButton);
+      }
 
       const namaRestoran = document.createElement("a");
       namaRestoran.classList.add("nama-restoran");
@@ -153,17 +156,22 @@ const detailResto = {
 
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const dataDetailResto = await dataRestoran.getDetail(url.id);
-    templateItem(dataDetailResto.restaurant);
+    const allFavoriteResto = await favoriteRestaurant.getAllFavoriteRestaurant();
+    templateItem(dataDetailResto.restaurant, allFavoriteResto);
 
-    const favActionButton = document.querySelector(".favorite-button");
-    favActionButton.addEventListener("click", async () => {
-      await favoriteRestaurant.putFavoriteRestaurant(dataDetailResto.restaurant);
-    });
-
-    const delFavActionButton = document.querySelector(".unfavorite-button");
-    delFavActionButton.addEventListener("click", async () => {
-      await favoriteRestaurant.deleteFavoriteRestaurant(dataDetailResto.restaurant.id);
-    });
+    if (checkFavoriteResto(allFavoriteResto, dataDetailResto.restaurant.id)) {
+      const delFavActionButton = document.querySelector(".unfavorite-button");
+      delFavActionButton.addEventListener("click", async () => {
+        await favoriteRestaurant.deleteFavoriteRestaurant(dataDetailResto.restaurant.id);
+        this.render();
+      });
+    } else {
+      const favActionButton = document.querySelector(".favorite-button");
+      favActionButton.addEventListener("click", async () => {
+        await favoriteRestaurant.putFavoriteRestaurant(dataDetailResto.restaurant);
+        this.render();
+      });
+    }
   },
 };
 

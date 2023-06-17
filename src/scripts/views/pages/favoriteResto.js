@@ -29,7 +29,7 @@ const favoriteResto = {
 
       const imageRestoran = document.createElement("img");
       imageRestoran.setAttribute("src", API_ENDPOINT.IMAGE(restaurantData.pictureId, "small"));
-      imageRestoran.setAttribute("alt", "Foto Restoran");
+      imageRestoran.setAttribute("alt", `Foto ${restaurantData.name} Restaurant`);
       gambarRestoran.append(imageRestoran);
 
       const namaRestoran = document.createElement("a");

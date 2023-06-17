@@ -3,6 +3,7 @@ import "../styles/main.css";
 // eslint-disable-next-line import/no-useless-path-segments
 import routes from "./routes/routes";
 import UrlParser from "./routes/url-parser";
+import loadingSpinner from "./utils/loadingSpinner";
 
 const hamburgerMenu = document.getElementById("nav-bar-icon");
 const exitHamburgerMenu = document.getElementById("exit-hamburger-menu");
@@ -17,9 +18,20 @@ const toggleExitHamburger = () => {
 };
 
 const renderingPage = async () => {
+  loadingSpinner.spinnerOn();
   const url = UrlParser.parseActiveUrlWithCombiner();
   const page = routes[url];
-  await page.render();
+
+  try {
+    loadingSpinner.spinnerOff();
+    await page.render();
+    // eslint-disable-next-line no-console
+    console.log("Halaman berhasil dimuat");
+  } catch (error) {
+    loadingSpinner.spinnerOff();
+    // eslint-disable-next-line no-console
+    console.log("Halaman gagal dimuat", error);
+  }
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -33,5 +45,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 window.addEventListener("hashchange", () => {
-  renderingPage();
+  if (window.location.hash === "#main-content") {
+    const mainContent = document.getElementById("main-content");
+    mainContent.focus();
+  } else if (window.location.hash === "#logo") {
+    const mainContent = document.getElementById("logo");
+    mainContent.focus();
+  } else {
+    renderingPage();
+  }
 });
