@@ -1,9 +1,15 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-await-in-loop */
+import lazySizes from "lazysizes";
 import dataRestoran from "../../data/data";
 import API_ENDPOINT from "../../global/api-endpoint";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 const allResto = {
   async render() {
+    const START = 2;
+    const NUMBER_OF_IMAGES = 2;
+
     const targetRender = document.querySelector(".daftar-restoran");
 
     const daftarKategori = ["Fine Dining", "Fast Food", "Healthy Restaurant", "Casual Dining", "Family Restaurant", "Seafood Restaurant", "Indonesian Cuisine", "Italian Restaurant"];
@@ -28,7 +34,8 @@ const allResto = {
       deskripsiRestoran.classList.add("deskripsi-restoran");
 
       const imageRestoran = document.createElement("img");
-      imageRestoran.setAttribute("src", API_ENDPOINT.IMAGE(restaurantData.pictureId, "small"));
+      imageRestoran.classList.add("lazyload");
+      imageRestoran.setAttribute("data-src", API_ENDPOINT.IMAGE(restaurantData.pictureId, "small"));
       imageRestoran.setAttribute("alt", `Foto ${restaurantData.name} Restaurant`);
       gambarRestoran.append(imageRestoran);
 

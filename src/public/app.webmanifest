@@ -6,12 +6,19 @@
   "description": "An App for restaurant details",
   "display": "standalone",
   "background_color": "#FFFFFF",
+  "theme_color": "#317EFB",
   "icons": [
     {
       "src": "./images/logo/logo.png",
       "sizes": "200x200",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "./images/logo/logo_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
